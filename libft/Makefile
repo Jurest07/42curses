@@ -50,7 +50,7 @@ $(NAME): $(OBJ)
 $(OBJ): $(HEAD) $(M) 
 
 %.o: %.c
-	gcc $(FLAGS) -I$(HEAD) -c $< -o $@ -MD
+	gcc $(FLAGS) -c $< -o $@ -MD
 
 include $(wildcard $(D_FILES))
 

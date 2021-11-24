@@ -47,7 +47,7 @@ char	*get_line(int fd, char **ost)
 	char		buff[BUFFER_SIZE + 1];
 
 	t.p_n = check_ost(*ost, &line);
-	while (!t.p_n && (t.was_read = read(fd, buff, BUFFER_SIZE)))
+	while (!t.p_n && (t.was_read = read(fd, buff, BUFFER_SIZE)))// нет проверки на валидность was_read
 	{
 		buff[t.was_read] = '\0';
 		if ((t.p_n = ft_strchr(buff, '\n')))

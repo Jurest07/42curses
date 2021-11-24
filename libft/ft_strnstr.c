@@ -30,12 +30,10 @@ int	check_all_little(const char *big, const char *little, size_t len)
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	int	len_little;
-	int	i;
 
 	len_little = ft_strlen(little);
 	if (len_little == 0)
 		return ((char *)big);
-	i = 0;
 	while (len > 0 && *big)
 	{
 		if (check_all_little(big, little, len))

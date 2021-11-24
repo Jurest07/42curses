@@ -10,38 +10,43 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
+#include "ft_printf.h"
 
-int	init_format(const char *format)
+int	init_format(const char *format, va_list ap)
 {
+	int f;
+
+	f = 1;
 	++format;
+	va_start(ap, format);
 	if (*format == 'c')
-		return ;
-	if (*format == 's')
-		return ;
-	if (*format == 'p')
-		return ;
-	if (*format == 'd')
-		return ;
-	if (*format == 'i')
-		return ;
-	if (*format == 'u')
-		return ;
-	if (*format == 'x')
-		return ;
-	if (*format == 'X')
-		return ;
-	if (*format == '%')
-		return ;
+		print_char((char)va_arg(ap, int));
+	else if (*format == 's')
+		print_string((char*)va_arg(ap, int));
+	else if (ft_strchr("xXp", *format))
+		print_hex((long)va_arg(ap, int), *format);
+	else if (ft_strchr("di", *format))
+		print_number((int)va_arg(ap,int));
+	else if (*format == 'u')
+		return 0;
+	else if (*format == '%')
+		return 0;
+	else
+		f = 0;
+	return (f);
 }
 
 int	ft_ptintf(const char *format, ...)
 {
 	va_list	ap;
-	va_start (ap, format);
 	while(*format)
 	{
 		if (*format == '%')
-			init_format(format, ap);
+			if(init_format(format, ap))
+				++format;
+		else
+			write(1, format, 1);
+		++format;
 	}
+	return (0);
 }

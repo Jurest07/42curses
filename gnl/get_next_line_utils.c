@@ -1,11 +1,11 @@
-#include <unistd.h>
+#include "get_next_line.h"
 
 size_t ft_strlen(const char *s)
 {
 	size_t	len;
 
 	len = 0;
-	while (str[len])
+	while (s[len])
 		++len;
 	return (len);
 }
@@ -58,6 +58,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 char	*ft_strchr(const char *s, int c)
 {
+	if (s == NULL)
+		return (NULL);
 	while (c > 256)
 		c = c - 256;
 	while (*s)
@@ -69,4 +71,25 @@ char	*ft_strchr(const char *s, int c)
 	if (*s == c)
 		return ((char *)s);
 	return (NULL);
+}
+
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	int				i;
+	unsigned char	*dst;
+	unsigned char	*s;
+
+	if (!dest && !src)
+		return (0);
+	dst = (unsigned char *)dest;
+	s = (unsigned char *)src;
+	i = 0;
+	while (n > 0)
+	{
+		dst[i] = s[i];
+		++i;
+		--n;
+	}
+	dst[i] = '\0';
+	return (dst);
 }

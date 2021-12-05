@@ -1,4 +1,4 @@
-* ************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
@@ -12,23 +12,22 @@
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-
-typedef struct	s_string
-{
-	char	*p_n;
-	char	*tmp;
-	char	*line;
-	int		was_read;
-}				t_string;
-
-typedef struct	get_next_line
-{
-	int						fd;
-	char					*ost;
-	struct get_next_line	*next;
-}				GNL;
+# define BUFFER_SIZE 2000
 
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
+
+typedef struct	s_gnl
+{
+	int						fd;
+	char					*ostatok;
+	struct s_gnl			*next;
+}				t_gnl;
+
+size_t	ft_strlen(const char *s);
+char	*ft_strdup(const char *s);
+char	*ft_strjoin(const char *s1, const char *s2);
+char	*ft_strchr(const char *s, int c);
+void	*ft_memcpy(void *dest, const void *src, size_t n);
 #endif

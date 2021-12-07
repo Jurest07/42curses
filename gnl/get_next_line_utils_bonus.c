@@ -6,11 +6,11 @@
 /*   By: slight <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 10:29:03 by slight            #+#    #+#             */
-/*   Updated: 2021/12/07 15:06:55 by slight           ###   ########.fr       */
+/*   Updated: 2021/12/07 15:32:34 by slight           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 size_t	ft_strlen(const char *s)
 {

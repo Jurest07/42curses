@@ -6,7 +6,7 @@
 /*   By: slight <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 09:47:31 by slight            #+#    #+#             */
-/*   Updated: 2021/12/07 15:21:34 by slight           ###   ########.fr       */
+/*   Updated: 2021/12/27 17:19:31 by slight           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,17 @@ char	*gnl2(char *buff, char **p_n, char **res, char **ostatok)
 	return (*res);
 }
 
+char	*check_invalid_fd(char **buff, char **res)
+{
+	if (ft_strlen(*res) == 0)
+	{
+		free(*res);
+		*res = NULL;
+	}
+	free(*buff);
+	return (*res);
+}
+
 char	*get_next_line(int fd)
 {
 	static char	*ostatok = NULL;
@@ -83,12 +94,7 @@ char	*get_next_line(int fd)
 		was_read = read(fd, buff, BUFFER_SIZE);
 		if (was_read <= 0)
 		{
-			if (ft_strlen(res) == 0)
-			{
-				free(res);
-				res = NULL;
-			}
-			free(buff);
+			res = check_invalid_fd(&buff, &res);
 			return (res);
 		}
 		buff[was_read] = '\0';

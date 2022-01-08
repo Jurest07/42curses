@@ -67,6 +67,21 @@ char	*gnl2(char *buff, char **p_n, char **res, char **ostatok)
 	return (*res);
 }
 
+int	check_fd(int was_read, char **res, char **buff)
+{
+	if (was_read <= 0)
+		{
+			if (ft_strlen(*res) == 0)
+			{
+				free(*res);
+				*res = NULL;
+			}
+			free(*buff);
+			return (0);
+		}
+	return (1);
+}
+
 char	*get_next_line(int fd)
 {
 	static char	*ostatok = NULL;
@@ -81,16 +96,8 @@ char	*get_next_line(int fd)
 	while (p_n == NULL)
 	{
 		was_read = read(fd, buff, BUFFER_SIZE);
-		if (was_read <= 0)
-		{
-			if (ft_strlen(res) == 0)
-			{
-				free(res);
-				res = NULL;
-			}
-			free(buff);
+		if (!check_fd(was_read, &res, &buff))
 			return (res);
-		}
 		buff[was_read] = '\0';
 		res = gnl2(buff, &p_n, &res, &ostatok);
 	}

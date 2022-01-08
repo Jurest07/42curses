@@ -6,7 +6,7 @@
 /*   By: slight <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 13:19:14 by slight            #+#    #+#             */
-/*   Updated: 2021/12/07 17:05:00 by slight           ###   ########.fr       */
+/*   Updated: 2021/12/27 17:19:48 by slight           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,33 +68,30 @@ char	*gnl2(char *buff, char **p_n, char **res, char ***ostatok)
 
 char	*get_line(int fd, char **ostatok)
 {
-	char		*res;
-	char		*buff;
-	char		*p_n;
-	int			was_read;
+	t_clounada	cloun;
 
-	p_n = NULL;
-	buff = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	res = check_ostatok(&ostatok, &p_n);
-	while (p_n == NULL)
+	cloun.p_n = NULL;
+	cloun.buff = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	cloun.res = check_ostatok(&ostatok, &(cloun.p_n));
+	while (cloun.p_n == NULL)
 	{
-		was_read = read(fd, buff, BUFFER_SIZE);
-		if (was_read <= 0)
+		cloun.was_read = read(fd, cloun.buff, BUFFER_SIZE);
+		if (cloun.was_read <= 0)
 		{
-			if (ft_strlen(res) == 0)
+			if (ft_strlen(cloun.res) == 0)
 			{
-				free(res);
-				res = NULL;
+				free(cloun.res);
+				cloun.res = NULL;
 			}
-			free(buff);
-			return (res);
+			free(cloun.buff);
+			return (cloun.res);
 		}
-		buff[was_read] = '\0';
-		res = gnl2(buff, &p_n, &res, &ostatok);
+		cloun.buff[cloun.was_read] = '\0';
+		cloun.res = gnl2(cloun.buff, &(cloun.p_n), &(cloun.res), &ostatok);
 	}
-	free(buff);
-	res[ft_strlen(res)] = '\n';
-	return (res);
+	free(cloun.buff);
+	cloun.res[ft_strlen(cloun.res)] = '\n';
+	return (cloun.res);
 }
 
 t_gnl	*new_linked_list(int fd)
@@ -123,14 +120,11 @@ char	*get_next_line(int fd)
 	{
 		if (tmp->next == NULL)
 			tmp->next = new_linked_list(fd);
-		printf("%s\n", "here");
 		tmp = tmp->next;
 	}
 	line = get_line(tmp->fd, &tmp->ostatok);
-	printf("line : %s\n", line);
-	printf("ostatok : %s\n", tmp->ostatok);
 	if (line == NULL)
 		if (tmp->ostatok == NULL)
-				free(tmp);
+			free(tmp);
 	return (line);
 }

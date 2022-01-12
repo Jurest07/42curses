@@ -11,23 +11,21 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdarg.h>
 
 int	ft_printf(const char *format, ...)
 {
 	va_list	ap;
+
 	va_start(ap, format);
 	while(*format)
 	{
 		if (*format == '%')
 		{
 			++format;
-			if (*format == 'c')
-				print_char((char) va_arg(ap, int));
-			if (*format == 'i')
-				print_number(va_arg(ap, int));
-			if(ft_strchr("xX", *format))
-				print_hex(va_arg(ap, long), *format);
+			if (ft_strchr(CONVERSIONS, *format))
+				parce(ap, *format);
+			else
+				return (0);
 		}
 		else
 			write(1, format, 1);
@@ -42,10 +40,12 @@ int main(void)
 	char	*c2;
 	int		i;
 	unsigned int	hex;
+	unsigned int	hex1;
 
-	c1 = 'a';
-	c2 = "And";
-	i = 21;
-	hex = 0x782abc;
-	ft_printf("hello %c, My name is . Im %i years old. OMG \n%x \n%X \n", c1, i, hex, hex);
+	c1 = 'f';
+	c2 = "Andrey";
+	i = -12;
+	hex = 0xff;
+	hex1 = 255;
+	ft_printf("hello %c, My name is %s. Im %d years old. OMG \n%d \n%X \n%%", c1, c2, i, hex, hex1);
 }

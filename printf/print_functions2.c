@@ -57,3 +57,23 @@ void	ft_putnbr_base(t_llong num, int osn, char *base)
 	print_string(s);
 	free(s);	
 }
+
+void	ft_putunsnbr(unsigned int num)
+{
+	int		dell;
+	char	temp;
+
+	if (num == 0)
+	{
+		write(1, "0", 1);
+		return ;	
+	}
+	dell = jrs2_power(10, count2_power(num) - 1);
+	while (dell > 0)
+	{
+		temp = num / dell + 48;
+		write(1, &temp, 1);
+		num = num % dell;
+		dell = dell / 10;
+	}
+}

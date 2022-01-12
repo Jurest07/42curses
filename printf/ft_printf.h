@@ -5,6 +5,8 @@
 # include <stdarg.h>
 # include <stddef.h>
 
+# define CONVERSIONS "cspdiuxX%"
+
 typedef unsigned int t_llong;
 
 typedef struct	s_value{
@@ -23,5 +25,11 @@ void	ft_putnbr_base(t_llong num, int osn, char *base);
 size_t	ft_strlen(const char *s);
 void	ft_putnbr_fd(int n, int fd);
 char	*ft_strchr(const char *s, int c);
-
+void	parce(va_list data, char format);
+int		count1_power(int n);
+int		jrs1_power(int osn, int st);
+int		count2_power(unsigned int n);
+int		jrs2_power(int osn, unsigned int st);
+void	ft_putunsnbr(unsigned int num);
+void	print_unsigned_number(unsigned int num);
 #endif

@@ -6,7 +6,7 @@
 /*   By: slight <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 13:44:48 by slight            #+#    #+#             */
-/*   Updated: 2021/11/08 14:44:25 by slight           ###   ########.fr       */
+/*   Updated: 2022/01/13 00:06:05 by slight           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,24 @@
 
 int	ft_printf(const char *format, ...)
 {
-	va_list	ap;
+	va_list	data;
 
-	va_start(ap, format);
+	va_start(data, format);
 	while(*format)
 	{
 		if (*format == '%')
 		{
 			++format;
 			if (ft_strchr(CONVERSIONS, *format))
-				parce(ap, *format);
-			else
+				parse(data, *format);
+			else 
 				return (0);
 		}
 		else
 			write(1, format, 1);
 		++format;
 	}
+	va_end(data, format);
 	return (0);
 }
 
@@ -42,7 +43,7 @@ int main(void)
 	unsigned int	hex;
 	unsigned int	hex1;
 
-	c1 = 'f';
+	c1 = 'z';
 	c2 = "Andrey";
 	i = -12;
 	hex = 0xff;

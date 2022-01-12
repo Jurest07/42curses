@@ -30,28 +30,29 @@ int	count1_power(int n)
 	return (p);
 }
 
-void	ft_putnbr_fd(int n, int fd)
+int	ft_putnbr_fd(int n, int fd)
 {
+	int		sum;
 	int		dell;
 	char	temp;
 
-	if (n == 0 || n == -0)
-	{
-		write(fd, "0", 1);
-		return ;
-	}
-	if (n < 0)
-		write(fd, "-", 1);
+	sum = 0;
+	if (n == 0)
+		return (write(fd, "0", 1));
+	if (n < 0 && !addret(write(fd, "-", 1), &sum))
+		return (-1);
 	if (n > 0)
 		n = -n;
 	dell = jrs1_power(10, count1_power(n) - 1);
 	while (dell > 0)
 	{
 		temp = -(n / dell) + 48;
-		write(fd, &temp, 1);
+		if (!addret(write(fd, &temp, 1), &sum))
+				return (-1);
 		n = n % dell;
 		dell = dell / 10;
 	}
+	return (sum);
 }
 
 char	*ft_strchr(const char *s, int c)

@@ -1,5 +1,6 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
+
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
@@ -17,19 +18,22 @@ typedef struct	s_value{
 
 }				t_value;
 
-void	print_char(char c);
-void	print_string(char *s);
-void	print_number(int num);
-void	print_hex(long num, char c);
-void	ft_putnbr_base(t_llong num, int osn, char *base);
+int		print_char(char c);
+int		print_string(char *s);
+int		print_number(int num);
+int		print_hex(long num, char c);
+int		ft_putnbr_base(t_llong num, int osn, char *base);
 size_t	ft_strlen(const char *s);
-void	ft_putnbr_fd(int n, int fd);
+int		ft_putnbr_fd(int n, int fd);
 char	*ft_strchr(const char *s, int c);
-void	parce(va_list data, char format);
+int		parse(va_list data, char format);
 int		count1_power(int n);
 int		jrs1_power(int osn, int st);
 int		count2_power(unsigned int n);
 int		jrs2_power(int osn, unsigned int st);
-void	ft_putunsnbr(unsigned int num);
-void	print_unsigned_number(unsigned int num);
+int		ft_putunsnbr(unsigned int num);
+int		print_unsigned_number(unsigned int num);
+int		print_pointer(unsigned long num, int osn, char *base);
+int		ft_printf(const char *format, ...);
+int		addret(int num, int* sum);
 #endif

@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   str_fun.c                                          :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slight <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: lis <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/14 00:31:11 by slight            #+#    #+#             */
-/*   Updated: 2022/01/14 19:23:55 by slight           ###   ########.fr       */
+/*   Created: 2021/10/06 13:38:03 by lis               #+#    #+#             */
+/*   Updated: 2021/10/18 21:36:21 by akodos           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <stdlib.h>
 
-size_t	ft_strlen(const char *s)
+char	*ft_strdup(char const *s)
 {
-	size_t	len;
+	int		len;
+	char	*dup;
 
 	len = 0;
 	while (s[len])
-		len++;
-	return (len);
-}
-
-char	*ft_strchr(const char *s, int c)
-{
-	while (c > 256)
-		c = c - 256;
-	while (*s)
+		++len;
+	dup = malloc(sizeof(char) * (len + 1));
+	if (!dup)
+		return (NULL);
+	len = 0;
+	while (s[len])
 	{
-		if (*s == c)
-			return ((char *)s);
-		s++;
+		dup[len] = s[len];
+		++len;
 	}
-	if (*s == c)
-		return ((char *)s);
-	return (NULL);
+	dup[len] = '\0';
+	return (dup);
 }

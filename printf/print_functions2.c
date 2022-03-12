@@ -1,14 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_functions2.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: slight <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/13 20:41:07 by slight            #+#    #+#             */
+/*   Updated: 2022/01/14 19:01:29 by slight           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
-#include <stdio.h>
-int	s_len(int osn, t_llong num)
+
+int	s_len(int osn, t_ull num)
 {
-	int dell;
+	int	dell;
 
 	if (num == 0)
 		return (1);
 	dell = 0;
-	if (num < 0)
-		num = -num;
 	while (num > 0)
 	{
 		num /= osn;
@@ -17,63 +27,35 @@ int	s_len(int osn, t_llong num)
 	return (dell);
 }
 
-char	*alocate_string(int *dell, t_llong num)
+int	digit_count_of_int(int n)
 {
-	char *s;
+	int	p;
 
-	if (num < 0)
+	p = 0;
+	while (n != 0)
 	{
-		s = malloc(sizeof(char) * (*dell + 2));
-		*dell = *dell + 1;
+		n = n / 10;
+		++p;
 	}
-		else
-		s = malloc(sizeof(char) * (*dell + 1));
-	return (s);
+	return (p);
 }
 
-void	ft_putnbr_base(t_llong num, int osn, char *base)
+int	digit_count_of_ui(t_ui n)
 {
-	int dell;
-	char *s;
-	int i;
-	int f;
+	int	p;
 
-	dell = s_len(osn, num);
-	f = dell;
-	s = alocate_string(&dell, num);
-	i = 0;
-	if (num < 0)
+	p = 0;
+	while (n != 0)
 	{
-		s[0] = '-';
-		num = -num;
+		n = n / 10;
+		++p;
 	}
-	while (i < f)
-	{
-		s[dell - i - 1] = base[num % osn];
-		++i;
-		num /= osn;
-	}
-	s[dell] = '\0';
-	print_string(s);
-	free(s);	
+	return (p);
 }
 
-void	ft_putunsnbr(unsigned int num)
+t_ull	jrs_power(int osn, int st)
 {
-	int		dell;
-	char	temp;
-
-	if (num == 0)
-	{
-		write(1, "0", 1);
-		return ;	
-	}
-	dell = jrs2_power(10, count2_power(num) - 1);
-	while (dell > 0)
-	{
-		temp = num / dell + 48;
-		write(1, &temp, 1);
-		num = num % dell;
-		dell = dell / 10;
-	}
+	if (st == 0)
+		return (1);
+	return (osn * jrs_power(osn, st - 1));
 }

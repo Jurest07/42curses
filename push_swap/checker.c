@@ -6,7 +6,7 @@
 /*   By: slight <slight@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 21:49:05 by slight            #+#    #+#             */
-/*   Updated: 2022/03/10 21:59:18 by slight           ###   ########.fr       */
+/*   Updated: 2022/03/12 15:39:51 by slight           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ char	*read_buff(void)
 {
 	char	*buff;
 	char	*res;
+	char	*tmp;	
 	int		was_read;
 
 	res = (char *)malloc(sizeof(*res));
@@ -30,7 +31,9 @@ char	*read_buff(void)
 	buff[was_read] = 0;
 	while (was_read != 0)
 	{
+		tmp = res;
 		res = ft_strjoin(res, buff);
+		free(tmp);
 		was_read = read(0, buff, 4);
 		buff[was_read] = 0;
 	}
@@ -53,6 +56,7 @@ void	check_buff(char *buff)
 		str[j] = 0;
 		if (!(check_str(str)))
 		{
+			write(2, "Error\n", 6);
 			exit (0);
 		}
 		++i;

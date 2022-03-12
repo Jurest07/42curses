@@ -26,16 +26,16 @@ all: $(NAME)
 
 bonus: $(NAME_BONUS)
 
-libft/libft.a :
+libft/libft.a : libft/*c libft/*h
 	make -C libft
 
 %.o: %.c
 	$(CC) $(FLAGS) -I$(HEADLID) -c $< -o $@
 
-$(NAME): $(OBJ) libft/libft.a
+$(NAME): $(OBJ) libft/libft.a $(HEADLID)/push_swap.h
 	$(CC) $(OBJ) libft/libft.a -o $(NAME)
 
-$(NAME_BONUS) : $(OBJ_BONUS) libft/libft.a
+$(NAME_BONUS) : $(OBJ_BONUS) libft/libft.a $(HEADLID)/push_swap.h
 	$(CC) $(OBJ_BONUS) libft/libft.a -o $(NAME_BONUS)
 
 clean:

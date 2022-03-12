@@ -6,7 +6,7 @@
 /*   By: slight <slight@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 23:24:10 by slight            #+#    #+#             */
-/*   Updated: 2022/03/10 21:55:36 by slight           ###   ########.fr       */
+/*   Updated: 2022/03/12 13:23:18 by slight           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,9 @@ int	main(int argc, char *argv[])
 	t_lists		lists;
 
 	if (argc == 1)
+		exit(0);
+	if (argc == 2 && (argv[1] == NULL || argv[1][0] == '\n'
+		|| argv[1][0] == '\0'))
 		exit(0);
 	init_mainst(&ps);
 	if (check_inputs(argc, argv, &ps) == FALSE)

@@ -17,11 +17,11 @@ RM = rm -rf
 all: $(CLIENT) $(SERVER)
 
 
-$(CLIENT): $(OBJ_CLIENT) $(OBJ_UTILS)
+$(CLIENT): $(OBJ_CLIENT) $(OBJ_UTILS) minitalk.h
 	@$(CC) $(CFLAGS) $(OBJ_CLIENT)  $(OBJ_UTILS) -o $(CLIENT)
 	@echo client done!!
 
-$(SERVER): $(OBJ_SERVER) $(OBJ_UTILS)
+$(SERVER): $(OBJ_SERVER) $(OBJ_UTILS) minitalk.h
 	@$(CC) $(CFLAGS) $(OBJ_SERVER) $(OBJ_UTILS) -o $(SERVER)
 	@echo server done!!
 

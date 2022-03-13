@@ -1,0 +1,161 @@
+Вступление
+
+События являются основой для написания интерактивных приложений в MiniLibX.
+Поэтому очень важно, чтобы вы полностью поняли эту главу,
+поскольку она будет полезна в ваших будущих графических проектах.
+
+Все hooks в MiniLibX - это не что иное, как функция,
+которая вызывается всякий раз, когда запускается событие.
+Освоение всех этих событий не будет необходимым,
+однако мы быстро рассмотрим каждое событие X11 соответственно.
+
+Версия для macOS
+
+Примечание: В macOS - Cocoa (AppKit) и OpenGL - версии minilibx
+частично поддерживает события X11 и не поддерживает маску X11 
+аргумент x_mask mlx_hook бесполезен, оставьте его равным 0).
+
+Поддерживаемые события:
+
+enum {
+	ON_KEYDOWN = 2,
+	ON_KEYUP = 3,
+	ON_MOUSEDOWN = 4,
+	ON_MOUSEUP = 5,
+	ON_MOUSEMOVE = 6,
+	ON_EXPOSE = 12,
+	ON_DESTROY = 17
+};
+
+// usage:
+mlx_hook(vars.win, ON_DESTROY, 0, close, &vars);
+
+Интерфейс X11
+
+X11 - это библиотека, которая используется вместе с MiniLibX.
+Поэтому не секрет, что этот заголовок очень полезен для поиска всех соответствующих
+событий MiniLibX.
+
+X11 события
+
+Есть ряд событий, которые вы можете описать.
+
+Key 	  Event 	  	    Key 	  Event 	  	        Key 	    Event
+02 	    KeyPress 	  	    14 	    NoExpose 	  	        26 	    CirculateNotify
+03 	    KeyRelease 	  	    15 	    VisibilityNotify 	  	27 	    CirculateRequest
+04 	    ButtonPress 	  	16 	    CreateNotify 	  	    28 	    PropertyNotify
+05 	    ButtonRelease 	  	17 	    DestroyNotify 	  	    29 	    SelectionClear
+06 	    MotionNotify 	  	18 	    UnmapNotify 	  	    30 	    SelectionRequest
+07 	    EnterNotify 	  	19 	    MapNotify 	  	        31 	    SelectionNotify
+08 	    LeaveNotify 	  	20 	    MapRequest 	  	        32 	    ColormapNotify
+09 	    FocusIn 	  	    21 	    ReparentNotify 	  	    33 	    ClientMessage
+10 	    FocusOut 	  	    22 	    ConfigureNotify 	  	34 	    MappingNotify
+11 	    KeymapNotify 	  	23 	    ConfigureRequest 	  	35 	    GenericEvent
+12 	    Expose 	  	        24 	    GravityNotify 	  	    36 	    LASTEvent
+13 	    GraphicsExpose 	  	25 	    ResizeRequest 	  	  	 
+
+Если вы не можете понять, что такое некоторые события,
+не волнуйтесь, потому что они вам, скорее всего, не понадобятся.
+Если вы это сделаете, ознакомьтесь с документацией по каждому событию X11.
+
+X11 маски
+
+Каждое событие X11 также имеет соответствующую маску.
+Таким образом, вы можете зарегистрироваться только для одного ключа,
+когда он срабатывает, или для всех ключей, если вы оставите свою маску по умолчанию.
+Таким образом, маски ключей позволяют вам вносить события в белый / черный список
+из ваших подписок на события. Допускаются следующие маски:
+
+0L 	        NoEventMask 	  	    (1L<<12) 	Button5MotionMask
+(1L<<0) 	KeyPressMask 	  	    (1L<<13) 	ButtonMotionMask
+(1L<<1) 	KeyReleaseMask 	  	    (1L<<14) 	KeymapStateMask
+(1L<<2) 	ButtonPressMask 	  	(1L<<15) 	ExposureMask
+(1L<<3) 	ButtonReleaseMask 	  	(1L<<16) 	VisibilityChangeMask
+(1L<<4) 	EnterWindowMask 	  	(1L<<17) 	StructureNotifyMask
+(1L<<5) 	LeaveWindowMask 	  	(1L<<18) 	ResizeRedirectMask
+(1L<<6) 	PointerMotionMask 	  	(1L<<19) 	SubstructureNotifyMask
+(1L<<7) 	PointerMotionHintMask 	(1L<<20) 	SubstructureRedirectMask
+(1L<<8) 	Button1MotionMask 	  	(1L<<21) 	FocusChangeMask
+(1L<<9) 	Button2MotionMask 	  	(1L<<22) 	PropertyChangeMask
+(1L<<10) 	Button3MotionMask 	  	(1L<<23) 	ColormapChangeMask
+(1L<<11) 	Button4MotionMask 	  	(1L<<24) 	OwnerGrabButtonMask
+
+Подключение к событиям
+mlx_hook
+
+Подключение к событиям - один из самых мощных инструментов,
+предоставляемых MiniLibX. Это позволяет вам зарегистрироваться на любое
+из вышеупомянутых событий с помощью вызова простой функции регистрации крючка.
+
+Для достижения этой цели мы вызываем функцию mlx_hook.
+
+void mlx_hook(mlx_win_list_t *win_ptr, int x_event, int x_mask, int (*f)(), void *param)
+
+В некоторых версиях mlbx не реализована x_mask, и независимо от значения маски не будет.
+
+Прототип функций событий
+
+Функции событий имеют разный прототип в зависимости от события подключения.
+
+Hooking event 	code 	Prototype
+ON_KEYDOWN 	    2 	    int (*f)(int keycode, void *param)
+ON_KEYUP* 	    3 	    int (*f)(int keycode, void *param)
+ON_MOUSEDOWN* 	4 	    int (*f)(int button, int x, int y, void *param)
+ON_MOUSEUP 	    5 	    int (*f)(int button, int x, int y, void *param)
+ON_MOUSEMOVE 	6 	    int (*f)(int x, int y, void *param)
+ON_EXPOSE* 	    12 	    int (*f)(void *param)
+ON_DESTROY 	    17 	    int (*f)(void *param)
+
+*Имеет псевдоним mlx_hook.
+
+Псевдоним для подключения
+
+Api Minilibx имеет некоторую функцию подключения псевдонимов:
+
+ функция mlx_expose_hook является псевдонимом mlx_hook при событии expose (12).
+ функция mlx_key_hook является псевдонимом mlx_hook при событии нажатия клавиши (3).
+ функция mlx_mouse_hook является псевдонимом mlx_hook при событии нажатия мыши (4).
+
+Пример
+
+Например, вместо вызова mlx_key_hook мы также можем зарегистрироваться для событий
+нажатия клавиш и освобождения ключей. Давайте взглянем:
+
+#include <mlx.h>
+
+typedef struct	s_vars {
+	void	*mlx;
+	void	*win;
+}				t_vars;
+
+int	close(int keycode, t_vars *vars)
+{
+	mlx_destroy_window(vars->mlx, vars->win);
+	return (0);
+}
+
+int	main(void)
+{
+	t_vars	vars;
+
+	vars.mlx = mlx_init();
+	vars.win = mlx_new_window(vars.mlx, 1920, 1080, "Hello world!");
+	mlx_hook(vars.win, 2, 1L<<0, close, &vars);
+	mlx_loop(vars.mlx);
+}
+
+Здесь мы регистрируемся на событие нажатия клавиши с соответствующей маской нажатия клавиши.
+Теперь всякий раз, когда мы нажимаем клавишу, окно будет закрыто.
+
+
+Проверьте свои навыки!
+
+Теперь, когда у вас есть слабое представление о том, как все это работает,
+мы рекомендуем вам создать обработчики крючков. Всякий раз, когда:
+
+ - Нажата клавиша ESC, ваше окно должно закрыться.
+ - размер окна изменен, вы должны что-то напечатать в своем терминале.
+ - при нажатии на красный крест ваше окно должно закрыться.
+ - если вы нажимаете клавишу дольше x секунд, вы должны что-то напечатать в своем терминале.
+ - мышь входит в окно, вы должны напечатать Привет! в вашем терминале, когда он уйдет,
+ вы должны напечатать "Пока!".

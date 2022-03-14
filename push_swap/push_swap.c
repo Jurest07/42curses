@@ -6,32 +6,12 @@
 /*   By: slight <slight@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 23:24:10 by slight            #+#    #+#             */
-/*   Updated: 2022/03/12 13:23:18 by slight           ###   ########.fr       */
+/*   Updated: 2022/03/14 21:27:01 by slight           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 #include <stdio.h>
-
-void	free_lists(t_lists *lists)
-{
-	t_list_swap	*tmp;
-
-	while (lists->a)
-	{
-		tmp = lists->a;
-		lists->a = lists->a->next;
-		free(tmp);
-	}
-	while (lists->b)
-	{
-		tmp = lists->b;
-		lists->b = lists->b->next;
-		free(tmp);
-	}
-	lists->a = NULL;
-	lists->b = NULL;
-}
 
 int	main(int argc, char *argv[])
 {

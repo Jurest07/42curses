@@ -6,7 +6,7 @@
 /*   By: slight <slight@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 23:44:37 by slight            #+#    #+#             */
-/*   Updated: 2022/03/10 21:00:39 by slight           ###   ########.fr       */
+/*   Updated: 2022/03/14 21:24:03 by slight           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,4 +111,5 @@ void		clounada_with_do_operations(t_lists *lists);
 void		clounada_with_do_operations2(t_lists *lists);
 void		clounada_with_check_min(t_lists *lists, int val, int *flag);
 t_bool		check_str(char *str);
+void		free_lists(t_lists *lists);
 #endif

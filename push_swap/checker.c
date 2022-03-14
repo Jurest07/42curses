@@ -6,7 +6,7 @@
 /*   By: slight <slight@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 21:49:05 by slight            #+#    #+#             */
-/*   Updated: 2022/03/12 15:39:51 by slight           ###   ########.fr       */
+/*   Updated: 2022/03/14 21:39:22 by slight           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,5 +131,7 @@ int	main(int argc, char *argv[])
 		write (1, "OK\n", 3);
 	else
 		write (1, "KO\n", 3);
+	free(buff);
+	free_lists(&lists);
 	exit (0);
 }

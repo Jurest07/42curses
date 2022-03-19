@@ -29,7 +29,10 @@ int	main(int argc, char *argv[])
 	init_lists(&lists, argc, argv, &ps);
 	find_max_sort(&lists);
 	if (lists.max_score_of_sort == ps.c_ints)
+	{
+		free_lists(&lists);
 		exit (0);
+	}
 	sort_iteration(&lists);
 	free_lists(&lists);
 	exit (0);

@@ -6,7 +6,7 @@
 /*   By: slight <slight@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 19:57:47 by slight            #+#    #+#             */
-/*   Updated: 2022/03/14 22:30:31 by slight           ###   ########.fr       */
+/*   Updated: 2022/03/23 19:53:46 by slight           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ void	die(char *errmes, int errnum)
 int	destroy_hook(int keycode, t_game *game)
 {
 	(void)keycode;
-	(void)game;
-	root_destroy(0, 0, 0);
+	root_destroy(game, 0, 0);
 	return (0);
 }

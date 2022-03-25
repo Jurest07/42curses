@@ -6,7 +6,7 @@
 /*   By: slight <slight@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 20:06:55 by slight            #+#    #+#             */
-/*   Updated: 2022/03/12 20:06:56 by slight           ###   ########.fr       */
+/*   Updated: 2022/03/23 22:53:05 by slight           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	init_gamestatus(t_gamestatus *status)
 	status->count_e = 0;
 	status->count_chars = 0;
 	status->count_press = 0;
+	status->die = 0;
 }
 
 void	init_iters(t_iters *iters)

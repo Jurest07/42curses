@@ -6,7 +6,7 @@
 /*   By: slight <slight@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 20:02:29 by slight            #+#    #+#             */
-/*   Updated: 2022/03/12 20:05:52 by slight           ###   ########.fr       */
+/*   Updated: 2022/03/25 20:54:45 by slight           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ void	check_need_chars(char *str, t_gamestatus *status)
 	init_iters(&iters);
 	while (str[iters.i])
 	{
-		if (str[iters.i] == 'C' || str[iters.i] == 'c')
+		if (str[iters.i] == 'C')
 			++status->count_c;
-		if (str[iters.i] == 'P' || str[iters.i] == 'p')
+		if (str[iters.i] == 'P')
 			++status->count_p;
-		if (str[iters.i] == 'E' || str[iters.i] == 'e')
+		if (str[iters.i] == 'E')
 			++status->count_e;
 		++iters.i;
 	}
@@ -87,9 +87,9 @@ void	create_map(int fd, t_gamestatus *status)
 	char	*str;
 	int		was_read;
 
-	str = (char *)malloc(sizeof(*str) * (status->count_press + 1));
+	str = (char *)malloc(sizeof(*str) * (status->count_chars + 1));
 	was_read = read(fd, str, status->count_chars);
-	str[status->count_chars] = '\0';
+	str[was_read] = '\0';
 	isvalidchars(str, status);
 	while (str[status->height] != '\n')
 		++(status->height);

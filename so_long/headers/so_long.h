@@ -6,7 +6,7 @@
 /*   By: slight <slight@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 20:09:46 by slight            #+#    #+#             */
-/*   Updated: 2022/03/24 00:31:46 by slight           ###   ########.fr       */
+/*   Updated: 2022/03/25 21:41:56 by slight           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include "../mlx_linux/mlx.h"
 # include "../mlx_linux/mlx_int.h"
 
-# define VALIDCHARS "01CEPQ\n"
+# define VALIDCHARS "01CEPG\n"
 # define TRUE 1
 # define FALSE 0
 

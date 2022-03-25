@@ -6,7 +6,7 @@
 /*   By: slight <slight@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 20:07:05 by slight            #+#    #+#             */
-/*   Updated: 2022/03/24 00:31:24 by slight           ###   ########.fr       */
+/*   Updated: 2022/03/25 21:40:47 by slight           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	move_up(t_game *game, int *x, int *y)
 	if (game->gamestatus.map[*y - 1][*x] == '1')
 		return ;
 	game->gamestatus.count_press++;
-	if (game->gamestatus.map[*y - 1][*x] == 'Q')
+	if (game->gamestatus.map[*y - 1][*x] == 'G')
 		game->gamestatus.die = 1;
 	else if (game->gamestatus.map[*y - 1][*x] == '0')
 		game->player.y -= 1;
@@ -41,7 +41,7 @@ void	move_down(t_game *game, int *x, int *y)
 	if (game->gamestatus.map[*y + 1][*x] == '1')
 		return ;
 	game->gamestatus.count_press++;
-	if (game->gamestatus.map[*y + 1][*x] == 'Q')
+	if (game->gamestatus.map[*y + 1][*x] == 'G')
 		game->gamestatus.die = 1;
 	else if (game->gamestatus.map[*y + 1][*x] == '0')
 		game->player.y += 1;
@@ -65,7 +65,7 @@ void	move_left(t_game *game, int *x, int *y)
 	if (game->gamestatus.map[*y][*x - 1] == '1')
 		return ;
 	game->gamestatus.count_press++;
-	if (game->gamestatus.map[*y][*x - 1] == 'Q')
+	if (game->gamestatus.map[*y][*x - 1] == 'G')
 		game->gamestatus.die = 1;
 	else if (game->gamestatus.map[*y][*x - 1] == '0')
 		game->player.x -= 1;
@@ -89,7 +89,7 @@ void	move_right(t_game *game, int *x, int *y)
 	if (game->gamestatus.map[*y][*x + 1] == '1')
 		return ;
 	game->gamestatus.count_press++;
-	if (game->gamestatus.map[*y][*x + 1] == 'Q')
+	if (game->gamestatus.map[*y][*x + 1] == 'G')
 		game->gamestatus.die = 1;
 	else if (game->gamestatus.map[*y][*x + 1] == '0')
 		game->player.x += 1;

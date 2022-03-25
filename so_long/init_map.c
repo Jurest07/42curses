@@ -6,7 +6,7 @@
 /*   By: slight <slight@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 20:02:29 by slight            #+#    #+#             */
-/*   Updated: 2022/03/25 20:54:45 by slight           ###   ########.fr       */
+/*   Updated: 2022/03/25 22:03:58 by slight           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,29 +37,28 @@ void	check_need_chars(char *str, t_gamestatus *status)
 		die("Невозможно определить положение игрока! Повторите попытку.", 0);
 }
 
-void	isvalidchars(char *str, t_gamestatus *status)
+void	isvalidchars(char *str, t_gamestatus *status, t_iters *iters)
 {
-	t_iters	iters;
-
-	init_iters(&iters);
-	while (str[iters.i] != '\0')
-		if (!ft_strchr(VALIDCHARS, str[(iters.i++)]))
+	while (str[iters->i] != '\0')
+		if (!ft_strchr(VALIDCHARS, str[(iters->i++)]))
 			die("Недопустимые символы в карте! Повторите попытку.", 0);
-	while (str[iters.j] != '\n')
-		if (str[(iters.j)++] != '1')
-			die("Карта не окружена стеной! Повторите потупку.", 0);
-	while (iters.k < ft_strlen(str))
+	while (str[iters->j] != '\n')
+		if (str[(iters->j)++] != '1')
+			die("Карта не окружена стеной! Повторите попытку.", 0);
+	while (iters->k < ft_strlen(str))
 	{
-		while (str[iters.k] != '\n' && str[iters.k] != '\0')
-			++iters.k;
-		if (str[iters.k] == '\0' && str[iters.k - 1] == '1')
+		while (str[iters->k] != '\n' && str[iters->k] != '\0')
+			++(iters->k);
+		if (str[iters->k] == '\0' &&
+		(str[iters->k - 1] == '1' || str[iters->k - 1] == '\n'))
 			break ;
-		if (str[iters.k - 1] != '1' || str[iters.k + 1] != '1')
-			die("Карта не окружена стеной! Повторите потупку.", 0);
-		++iters.k;
+		if (str[iters->k - 1] != '1'
+		|| (str[iters->k + 1] != '1' && str[iters->k + 1] != '\0'))
+			die("Карта не окружена стеной! Повторите попытку.", 0);
+		++(iters->k);
 	}
-	while (str[--iters.k] != '\n')
-		if (str[iters.k] != '1')
+	while (str[--(iters->k)] != '\n')
+		if (str[iters->k] != '1')
 			die("Карта не окружена стеной! Повторите потупку.", 0);
 	check_need_chars(str, status);
 }
@@ -86,11 +85,13 @@ void	create_map(int fd, t_gamestatus *status)
 {
 	char	*str;
 	int		was_read;
+	t_iters	iters;
 
+	init_iters(&iters);
 	str = (char *)malloc(sizeof(*str) * (status->count_chars + 1));
 	was_read = read(fd, str, status->count_chars);
-	str[was_read] = '\0';
-	isvalidchars(str, status);
+	str[status->count_chars] = '\0';
+	isvalidchars(str, status, &iters);
 	while (str[status->height] != '\n')
 		++(status->height);
 	while (str[status->iter])
@@ -101,7 +102,8 @@ void	create_map(int fd, t_gamestatus *status)
 	if (!isrectangle(status->height, status->width, str))
 		die("Карта не является прямоугольником! Повторите попытку.", 0);
 	fill_map(str, status);
-	free(str);
+	if (was_read != -1)
+		free(str);
 }
 
 void	parse_map(char *map, t_gamestatus *status)

@@ -1,6 +1,6 @@
 NAME = so_long
 
-HEADLID = heders/
+HEAD = headers/
 
 TEST_MAP = maps/map.ber
 
@@ -13,10 +13,10 @@ FLAGS = -Wall -Werror -Wextra -L/usr/include/../lib -lXext -lX11 -lm -lbsd -lz
 
 all: $(NAME)
 
-%.o: %.c
+%.o: %.c $(HEAD)/*
 	@ $(CC) $(FLAGS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(HEAD)/*
 	$(CC) $(OBJ) -Lmlx_linux -lmlx -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
 	@ echo "so_long was compiled"
 

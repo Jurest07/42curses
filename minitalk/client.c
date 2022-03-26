@@ -6,7 +6,7 @@
 /*   By: slight <slight@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/08 14:53:48 by slight            #+#    #+#             */
-/*   Updated: 2022/03/10 22:47:58 by slight           ###   ########.fr       */
+/*   Updated: 2022/03/26 21:12:39 by slight           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	send_message(int pid, int c)
 			if (kill(pid, SIGUSR2))
 				exit(0);
 		}
-		usleep(100);
+		usleep(400);
 	}
 }
 

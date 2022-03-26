@@ -4,8 +4,8 @@ HEAD = headers/
 
 TEST_MAP = maps/map.ber
 
-SRC = die.c draw.c init_game.c init_map.c init_map2.c init_structs.c \
-	  keys_press.c so_long.c destroed.c	
+SRC = src/die.c src/draw.c src/init_game.c src/init_map.c src/init_map2.c \
+		src/init_structs.c src/keys_press.c src/so_long.c src/destroed.c	
 
 OBJ = $(SRC:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: slight <slight@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 20:09:46 by slight            #+#    #+#             */
-/*   Updated: 2022/03/25 21:41:56 by slight           ###   ########.fr       */
+/*   Updated: 2022/03/26 17:47:54 by slight           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,15 +63,15 @@ typedef struct s_enemy
 
 typedef struct s_game {
 	void			*mlx;
-	void			*display;
-	t_img			*k_right;
-	t_img			*k_left;
-	t_img			*k_down;
+	void			*d;
+	t_img			*k_r;
+	t_img			*k_l;
+	t_img			*k_d;
 	t_img			*k_up;
-	t_img			*floor;
-	t_img			*wall;
-	t_img			*like;
-	t_img			*youtube;
+	t_img			*f;
+	t_img			*w;
+	t_img			*l;
+	t_img			*y;
 	t_img			*one;
 	t_img			*two;
 	t_img			*three;
@@ -82,8 +82,8 @@ typedef struct s_game {
 	t_img			*eight;
 	t_img			*nine;
 	t_img			*zero;
-	t_img			*black;
-	t_img			*grave;
+	t_img			*bl;
+	t_img			*gr;
 	t_coord			exit;
 	t_coord			player;
 	t_img			*enemy[6];

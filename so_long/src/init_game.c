@@ -6,7 +6,7 @@
 /*   By: slight <slight@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 20:00:11 by slight            #+#    #+#             */
-/*   Updated: 2022/03/26 17:55:26 by slight           ###   ########.fr       */
+/*   Updated: 2022/04/06 14:15:32 by slight           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	texture_load(t_game *game, t_img **img, char *path)
 	int				height;
 
 	*img = mlx_xpm_file_to_image(game->mlx, path, &width, &height);
+	if (*img == NULL)
+		root_destroy(game, "Неудалось загрузить текстуры", 0);
 	(*img)->width = width;
 	(*img)->height = height;
 }
@@ -89,6 +91,7 @@ void	init_game(t_game *game)
 	game->mlx = mlx_init();
 	game->d = mlx_new_window(game->mlx, game->gamestatus.height * 50,
 			(game->gamestatus.width + 1) * 50, "so_long");
+	init_imgs(game);
 	texture_init(game);
 	find_coords(game);
 }

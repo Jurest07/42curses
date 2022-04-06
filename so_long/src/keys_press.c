@@ -6,7 +6,7 @@
 /*   By: slight <slight@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 20:07:05 by slight            #+#    #+#             */
-/*   Updated: 2022/03/26 17:55:53 by slight           ###   ########.fr       */
+/*   Updated: 2022/04/06 16:19:34 by slight           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	move_up(t_game *game, int *x, int *y)
 	else if (game->gamestatus.map[*y - 1][*x] == 'E')
 	{
 		if (game->gamestatus.count_c == 0)
-			root_destroy(game, 0, 0);
+			root_destroy(game, "you win!", 1);
 		else
 			game->player.y -= 1;
 	}
@@ -54,7 +54,7 @@ void	move_down(t_game *game, int *x, int *y)
 	else if (game->gamestatus.map[*y + 1][*x] == 'E')
 	{
 		if (game->gamestatus.count_c == 0)
-			root_destroy(game, 0, 0);
+			root_destroy(game, "you win!", 1);
 		else
 			game->player.y += 1;
 	}
@@ -78,7 +78,7 @@ void	move_left(t_game *game, int *x, int *y)
 	else if (game->gamestatus.map[*y][*x - 1] == 'E')
 	{
 		if (game->gamestatus.count_c == 0)
-			root_destroy(game, 0, 0);
+			root_destroy(game, "you win!", 1);
 		else
 			game->player.x -= 1;
 	}
@@ -102,7 +102,7 @@ void	move_right(t_game *game, int *x, int *y)
 	else if (game->gamestatus.map[*y][*x + 1] == 'E')
 	{
 		if (game->gamestatus.count_c == 0)
-			root_destroy(game, 0, 0);
+			root_destroy(game, "you win!", 1);
 		else
 			game->player.x += 1;
 	}

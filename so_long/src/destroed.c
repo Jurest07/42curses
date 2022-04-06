@@ -6,7 +6,7 @@
 /*   By: slight <slight@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 20:32:28 by slight            #+#    #+#             */
-/*   Updated: 2022/03/26 17:55:20 by slight           ###   ########.fr       */
+/*   Updated: 2022/04/06 16:18:50 by slight           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,11 @@ static void	root_destroy3(t_game *game)
 	if (game->gr != 0)
 		mlx_destroy_image(game->mlx, game->gr);
 	while (i < 6)
+	{
 		if (game->enemy[i] != 0)
-			mlx_destroy_image(game->mlx, game->enemy[i++]);
+			mlx_destroy_image(game->mlx, game->enemy[i]);
+		++i;
+	}
 }
 
 static void	root_destroy2(t_game *game)
@@ -109,5 +112,5 @@ void	die_pls(t_game *game)
 		}
 		++i;
 	}
-	root_destroy(game, 0, 0);
+	root_destroy(game, "game over", 1);
 }

@@ -6,7 +6,7 @@
 /*   By: slight <slight@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 20:09:46 by slight            #+#    #+#             */
-/*   Updated: 2022/03/26 17:47:54 by slight           ###   ########.fr       */
+/*   Updated: 2022/04/06 16:41:26 by slight           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define SO_LONG_H
 
 # include <stdlib.h>
-//# include <stdio.h>
 # include "../mlx_linux/mlx.h"
 # include "../mlx_linux/mlx_int.h"
 
@@ -102,11 +101,12 @@ void	fill_map(char *file, t_gamestatus *status);
 void	init_game(t_game *game);
 void	draw(t_game *game, int keycode);
 int		key_press(int keycode, t_game *game);
-int		destroy_hook(int keycode, t_game *game);
+int		destroy_hook(t_game *game);
 void	root_destroy(t_game *game, char *errmsg, int errnum);
 char	*ft_inttostr(unsigned int num);
 void	texture_load(t_game *game, t_img **img, char *path);
 void	draw_c(t_game *game, int i, int j);
 void	draw_digit(t_game *game, char move, int i, int j);
 void	die_pls(t_game *game);
+void	init_imgs(t_game *game);
 #endif

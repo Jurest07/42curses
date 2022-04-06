@@ -6,7 +6,7 @@
 /*   By: slight <slight@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 20:08:23 by slight            #+#    #+#             */
-/*   Updated: 2022/03/26 17:55:49 by slight           ###   ########.fr       */
+/*   Updated: 2022/04/06 16:38:16 by slight           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,15 @@ int	enemy_sprite(t_game *game)
 		l = 0;
 		while (l < game->gamestatus.height)
 		{
-			if (game->gamestatus.map[k][l] == 'G' && (i % 10000 == 0))
+			if (game->gamestatus.map[k][l] == 'G' && (i % 2000 == 0))
 				mlx_put_image_to_window(game->mlx, game->d,
-					game->enemy[i / 10000], l * 50, k * 50);
+					game->enemy[i / 2000], l * 50, k * 50);
 			++l;
 		}
 		++k;
 	}
 	++i;
-	if (i == 60000)
+	if (i == 12000)
 		i = 0;
 	return (0);
 }

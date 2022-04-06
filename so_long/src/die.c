@@ -6,7 +6,7 @@
 /*   By: slight <slight@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 19:57:47 by slight            #+#    #+#             */
-/*   Updated: 2022/03/26 17:55:21 by slight           ###   ########.fr       */
+/*   Updated: 2022/04/06 16:41:42 by slight           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,18 +55,17 @@ int	isber(char *map)
 
 void	die(char *errmes, int errnum)
 {
-	if (errmes != 0 || errnum != 0)
+	if (errmes != 0 && errnum == 0)
 		printf("Error\n");
-	if (errmes != 0)
+	if (errmes != 0 && errnum != 0)
 		printf("%s\n", errmes);
 	if (errmes != 0 || errnum != 0)
 		exit(1);
 	exit(0);
 }
 
-int	destroy_hook(int keycode, t_game *game)
+int	destroy_hook(t_game *game)
 {
-	(void)keycode;
 	root_destroy(game, 0, 0);
 	return (0);
 }

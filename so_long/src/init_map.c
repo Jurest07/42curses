@@ -28,23 +28,23 @@ void	check_need_chars(char *str, t_gamestatus *status)
 		++iters.i;
 	}
 	if (status->count_c == 0)
-		die("На карте нет предматов для сбора! Повторите попытку.", 0);
+		die("No collected items! Rerty.", 0);
 	if (status->count_p == 0)
-		die("На карте нет игрока! Повторите попытку.", 0);
+		die("No player on map! Retry.", 0);
 	if (status->count_e == 0)
-		die("На карте нет выхода! Повторите попытку.", 0);
+		die("No exit on map! Retry.", 0);
 	if (status->count_p != 1)
-		die("Невозможно определить положение игрока! Повторите попытку.", 0);
+		die("unable to determine the position of the player! Retry.", 0);
 }
 
 void	isvalidchars(char *str, t_gamestatus *status, t_iters *iters)
 {
 	while (str[iters->i] != '\0')
 		if (!ft_strchr(VALIDCHARS, str[(iters->i++)]))
-			die("Недопустимые символы в карте! Повторите попытку.", 0);
+			die("Invalid characters in the map! Retry.", 0);
 	while (str[iters->j] != '\n')
 		if (str[(iters->j)++] != '1')
-			die("Карта не окружена стеной! Повторите попытку.", 0);
+			die("The map is not surrounded by a wall! Retry.", 0);
 	while (iters->k < ft_strlen(str))
 	{
 		while (str[iters->k] != '\n' && str[iters->k] != '\0')
@@ -54,12 +54,13 @@ void	isvalidchars(char *str, t_gamestatus *status, t_iters *iters)
 			break ;
 		if (str[iters->k - 1] != '1'
 			|| (str[iters->k + 1] != '1' && str[iters->k + 1] != '\0'))
-			die("Карта не окружена стеной! Повторите попытку.", 0);
+			die("The map is not surrounded by a wall! Retry.", 0);
 		++(iters->k);
 	}
+	--(iters->k);
 	while (str[--(iters->k)] != '\n')
 		if (str[iters->k] != '1')
-			die("Карта не окружена стеной! Повторите потупку.", 0);
+			die("The map is not surrounded by a wall! Retry.", 0);
 	check_need_chars(str, status);
 }
 
@@ -100,7 +101,7 @@ void	create_map(int fd, t_gamestatus *status)
 	if (str[status->iter - 1] != '\n')
 		++(status->width);
 	if (!isrectangle(status->height, status->width, str))
-		die("Карта не является прямоугольником! Повторите попытку.", 0);
+		die("The map is not rectangle! Retry.", 0);
 	fill_map(str, status);
 	if (was_read != -1)
 		free(str);
@@ -115,7 +116,7 @@ void	parse_map(char *map, t_gamestatus *status)
 	fd = open(map, O_RDONLY);
 	was_read = read(fd, buff, 1024);
 	if (was_read < 0)
-		die("Невозможно прочитать файл! Повторите попытку.", 0);
+		die("Unable to read file! Retry.", 0);
 	while (was_read == 1024)
 	{
 		status->count_chars += was_read;

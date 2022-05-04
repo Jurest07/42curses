@@ -19,7 +19,7 @@ void	texture_load(t_game *game, t_img **img, char *path)
 
 	*img = mlx_xpm_file_to_image(game->mlx, path, &width, &height);
 	if (*img == NULL)
-		root_destroy(game, "Неудалось загрузить текстуры", 0);
+		root_destroy(game, "Can't load texture", 0);
 	(*img)->width = width;
 	(*img)->height = height;
 }

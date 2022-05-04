@@ -14,6 +14,7 @@
 # define SO_LONG_H
 
 # include <stdlib.h>
+# include <unistd.h>
 # include "../mlx_linux/mlx.h"
 # include "../mlx_linux/mlx_int.h"
 

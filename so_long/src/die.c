@@ -55,13 +55,21 @@ int	isber(char *map)
 
 void	die(char *errmes, int errnum)
 {
+	int	f;
+
 	if (errmes != 0 && errnum == 0)
-		printf("Error\n");
-	if (errmes != 0 && errnum != 0)
-		printf("%s\n", errmes);
+		f = write(2, "Error\n", 6);
+	if (errmes != 0)
+	{
+		f = write(2, errmes, ft_strlen(errmes));
+		f = write(2, "\n", 1);
+	}
+	if (f == 0)
+		f = 1;
 	if (errmes != 0 || errnum != 0)
 		exit(1);
 	exit(0);
+
 }
 
 int	destroy_hook(t_game *game)

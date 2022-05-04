@@ -61,9 +61,9 @@ int	main(int argc, char *argv[])
 
 	init_gamestatus(&(game.gamestatus));
 	if (argc != 2)
-		die("Неправильное число аргументов! Повторите потыпку.", 0);
+		die("Uncorrect number of params! Retry.", 0);
 	if (!isber(argv[1]))
-		die("Неправильный формат карты(ожидалось .ber)! Повторите попытку.", 0);
+		die("Uncorret format of map(expected .ber)! Rerty.", 0);
 	parse_map(argv[1], &(game.gamestatus));
 	init_game(&game);
 	draw(&game, 0);

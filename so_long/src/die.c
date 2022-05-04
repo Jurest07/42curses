@@ -53,7 +53,7 @@ int	isber(char *map)
 	return (1);
 }
 
-void	die(char *errmes, int errnum)
+void	die(char *errmes, int errnum, char *str)
 {
 	int	f;
 
@@ -66,6 +66,8 @@ void	die(char *errmes, int errnum)
 	}
 	if (f == 0)
 		f = 1;
+	if (str != NULL)
+		free(str);
 	if (errmes != 0 || errnum != 0)
 		exit(1);
 	exit(0);

@@ -38,6 +38,7 @@ typedef struct s_coord
 
 typedef struct s_gamestatus
 {
+	char			*emptyp;
 	char			**map;
 	int				iter;
 	int				count_chars;
@@ -90,7 +91,7 @@ typedef struct s_game {
 	t_gamestatus	gamestatus;
 }				t_game;
 
-void	die(char *errmes, int errnum);
+void	die(char *errmes, int errnum, char *str);
 int		ft_strlen(char *s);
 void	putendl_fd(char *mes, int fd);
 int		isber(char *map_name);

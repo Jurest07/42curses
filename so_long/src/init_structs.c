@@ -39,6 +39,7 @@ void	init_gamestatus(t_gamestatus *status)
 	status->count_chars = 0;
 	status->count_press = 0;
 	status->die = 0;
+	status->emptyp = NULL;
 }
 
 void	init_iters(t_iters *iters)

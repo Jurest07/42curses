@@ -19,12 +19,13 @@ void	fill_map(char *str, t_gamestatus *status)
 	init_iters(&iters);
 	status->map = malloc(sizeof(char *) * status->width);
 	if (status->map == NULL)
-		die("Unable to allocate memory for the map! Retry.", 0);
+		die("Unable to allocate memory for the map! Retry.", 0, status->emptyp);
 	while (iters.i < status->width)
 	{
 		status->map[iters.i] = malloc(sizeof(char) * (status->height + 1));
 		if (status->map[iters.i] == NULL)
-			die("Unable to allocate memory for the map! Retry.", 0);
+			die("Unable to allocate memory for the map! Retry.",
+				0, status->emptyp);
 		++iters.i;
 	}
 	while (str[iters.j])

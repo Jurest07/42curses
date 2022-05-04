@@ -61,9 +61,10 @@ int	main(int argc, char *argv[])
 
 	init_gamestatus(&(game.gamestatus));
 	if (argc != 2)
-		die("Uncorrect number of params! Retry.", 0);
+		die("Uncorrect number of params! Retry.", 0, game.gamestatus.emptyp);
 	if (!isber(argv[1]))
-		die("Uncorret format of map(expected .ber)! Rerty.", 0);
+		die("Uncorret format of map(expected .ber)! Rerty.",
+			0, game.gamestatus.emptyp);
 	parse_map(argv[1], &(game.gamestatus));
 	init_game(&game);
 	draw(&game, 0);

@@ -92,7 +92,7 @@ void	root_destroy(t_game *game, char *errmsg, int errnum)
 	}
 	mlx_destroy_display(game->mlx);
 	free(game->mlx);
-	die(errmsg, errnum);
+	die(errmsg, errnum, game->gamestatus.emptyp);
 }
 
 void	die_pls(t_game *game)

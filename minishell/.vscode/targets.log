@@ -1,0 +1,651 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 4.2.1
+ 
+# Built for x86_64-pc-linux-gnu
+ 
+# Copyright (C) 1988-2016 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Sun Aug 14 12:03:02 2022
+
+# Variables
+
+# 'override' directive
+GNUMAKEFLAGS := 
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# environment
+DESKTOP_SESSION = ubuntu
+# default
+.SHELLFLAGS := -c
+# makefile (from 'Makefile', line 9)
+OBJ = $(SRC:.c=.o)
+# environment
+XDG_SESSION_CLASS = user
+# makefile (from 'Makefile', line 7)
+SRC = src/main.c src/utils.c src/lexer.c src/list_functions.c src/lexer_functions.c src/lexer_function2.c
+# environment
+SNAP_COMMON = /var/snap/code/common
+# environment
+XDG_SESSION_TYPE = x11
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# environment
+IM_CONFIG_PHASE = 1
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# environment
+XAUTHORITY = /run/user/1000/gdm/Xauthority
+# environment
+GDMSESSION = ubuntu
+# environment
+XMODIFIERS = @im=ibus
+# makefile
+CURDIR := /home/jurest/school21/mygit/minishell
+# makefile
+SHELL = /bin/sh
+# environment
+SNAP_DATA = /var/snap/code/103
+# environment
+VSCODE_NLS_CONFIG = {"locale":"ru","availableLanguages":{"*":"ru"},"_languagePackId":"bb5033a0de544313f5d945d2959de1f0.ru","_translationsConfigFile":"/home/jurest/.config/Code/clp/bb5033a0de544313f5d945d2959de1f0.ru/tcf.json","_cacheRoot":"/home/jurest/.config/Code/clp/bb5033a0de544313f5d945d2959de1f0.ru","_resolvedLanguagePackCoreLocation":"/home/jurest/.config/Code/clp/bb5033a0de544313f5d945d2959de1f0.ru/da76f93349a72022ca4670c1b84860304616aaa2","_corruptedFile":"/home/jurest/.config/Code/clp/bb5033a0de544313f5d945d2959de1f0.ru/corrupted.info","_languagePackSupport":true}
+# environment
+JOURNAL_STREAM = 8:33962
+# environment
+XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
+# environment
+SNAP_INSTANCE_NAME = code
+# environment
+SNAP_ARCH = amd64
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
+# automatic
+@F = $(notdir $@)
+# environment
+GIO_LAUNCHED_DESKTOP_FILE = /var/lib/snapd/desktop/applications/code_code.desktop
+# environment
+USERNAME = jurest
+# environment
+XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+# environment
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
+# environment
+_ = /snap/code/103/usr/share/code/code
+# environment
+MANAGERPID = 901
+# environment
+P9K_SSH = 0
+# environment
+VSCODE_CWD = /home/jurest
+# environment
+GSETTINGS_SCHEMA_DIR = /snap/code/103/usr/share/glib-2.0/schemas
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# environment
+PATH = /home/jurest/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+# environment
+GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
+# environment
+LSCOLORS = Gxfxcxdxbxegedabagacad
+# environment
+SESSION_MANAGER = local/jurest-vm:@/tmp/.ICE-unix/1280,unix/jurest-vm:/tmp/.ICE-unix/1280
+# environment
+XDG_RUNTIME_DIR = /run/user/1000
+# environment
+GDK_PIXBUF_MODULE_FILE = /home/jurest/snap/code/common/.cache/gdk-pixbuf-loaders.cache
+# environment
+SNAP = /snap/code/103
+# environment
+SNAP_VERSION = da76f933
+# environment
+XDG_MENU_PREFIX = gnome-
+# environment
+DISABLE_WAYLAND = 1
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+INVOCATION_ID = 1453bc9b84cc401896383d8d8fe8210e
+# environment
+GDK_PIXBUF_MODULEDIR = /snap/code/103/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# environment
+LS_COLORS = 
+# environment
+XDG_SESSION_DESKTOP = ubuntu
+# environment
+SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+# environment
+GIO_LAUNCHED_DESKTOP_FILE_PID = 1905
+# automatic
+%F = $(notdir $%)
+# environment
+DISPLAY = :0
+# environment
+SNAP_INSTANCE_KEY = 
+# environment
+PWD = /home/jurest/school21/mygit/minishell
+# default
+.LOADED := 
+# environment
+SSH_AGENT_PID = 1236
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
+# environment
+GTK_MODULES = gail:atk-bridge
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /home/jurest
+# environment
+VSCODE_CLI = 1
+# environment
+VSCODE_CODE_CACHE_PATH = /home/jurest/.config/Code/CachedData/da76f93349a72022ca4670c1b84860304616aaa2
+# environment
+LOGNAME = jurest
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
+# environment
+SNAP_CONTEXT = t_mtz97DSyNWTRJeysW3CJ4TNKW17S5vcKNzoTTlr9K5QbkzIo7p
+# environment
+ZSH = /home/jurest/.oh-my-zsh
+# environment
+SNAP_USER_COMMON = /home/jurest/snap/code/common
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# environment
+GNOME_DESKTOP_SESSION_ID = this-is-deprecated
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+MAKELEVEL := 0
+# environment
+SNAP_REAL_HOME = /home/jurest
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# environment
+QT_IM_MODULE = ibus
+# environment
+SNAP_USER_DATA = /home/jurest/snap/code/103
+# environment
+SHLVL = 0
+# makefile (from 'Makefile', line 3)
+CC = gcc
+# environment
+GNOME_SHELL_SESSION_MODE = ubuntu
+# default
+MAKE_VERSION := 4.2.1
+# environment
+USER = jurest
+# environment
+SNAP_REVISION = 103
+# makefile
+.DEFAULT_GOAL := all
+# environment
+XDG_CURRENT_DESKTOP = Unity
+# makefile (from 'Makefile', line 1)
+NAME = minishell
+# environment
+LESS = -R
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# default
+MAKE_COMMAND := make
+# environment
+OLDPWD = /home/jurest
+# default
+.VARIABLES := 
+# automatic
+*F = $(notdir $*)
+# environment
+VSCODE_IPC_HOOK = /run/user/1000/vscode-e7fa277b-1.70.0-main.sock
+# environment
+BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
+# makefile
+MAKEFLAGS = pqrR
+# environment
+MFLAGS = -pqrR
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# environment
+GDK_BACKEND = x11
+# automatic
++F = $(notdir $+)
+# environment
+QT_ACCESSIBILITY = 1
+# default
+MAKEFILES := 
+# environment
+SNAP_COOKIE = t_mtz97DSyNWTRJeysW3CJ4TNKW17S5vcKNzoTTlr9K5QbkzIo7p
+# automatic
+<F = $(notdir $<)
+# makefile (from 'Makefile', line 5)
+HEADDIR = headers/
+# environment
+SNAP_NAME = code
+# environment
+PAGER = less
+# environment
+LC_ALL = C
+# environment
+GJS_DEBUG_TOPICS = JS ERROR;JS LOG
+# automatic
+^F = $(notdir $^)
+# default
+SUFFIXES := 
+# makefile (from 'Makefile', line 11)
+FLAGS = -Wall -Werror -Wextra
+# environment
+SNAP_REEXEC = 
+# environment
+CHROME_DESKTOP = code-url-handler.desktop
+# environment
+WINDOWPATH = 2
+# default
+.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+# environment
+GJS_DEBUG_OUTPUT = stderr
+# default
+.RECIPEPREFIX := 
+# environment
+LANG = C
+# environment
+VSCODE_PID = 1943
+# variable set hash-table stats:
+# Load=125/1024=12%, Rehash=0, Collisions=21/162=13%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 2053, inode 2359952): 7 files, no impossibilities.
+# / (device 2053, inode 2): 27 files, no impossibilities.
+# headers/ (device 2053, inode 138761): 3 files, no impossibilities.
+# src (device 2053, inode 138760): 17 files, no impossibilities so far.
+
+# 54 files, no impossibilities in 4 directories.
+
+# Implicit Rules
+
+%.o: %.c headers//minishell.h
+#  recipe to execute (from 'Makefile', line 16):
+ 
+	$(CC) $(FLAGS) -I$(HEADDIR) -c $< -o $@ 
+ 
+
+# 1 implicit rules, 0 (0.0%) terminal.
+
+# Files
+
+# Not a target:
+/root:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+/etc:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+/srv:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+/libx32:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+all: minishell
+#  Phony target (prerequisite of .PHONY).
+#  Command line target.
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/6=0%
+
+.PHONY: all clean fclean re run
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+src/main.o: src/main.c headers//minishell.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/main'
+#  Last modified 2022-08-14 11:59:32.377522865
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 16):
+	$(CC) $(FLAGS) -I$(HEADDIR) -c $< -o $@ 
+
+src/lexer_function2.o: src/lexer_function2.c headers//minishell.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/lexer_function2'
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := src/lexer_function2.o
+# automatic
+# % := 
+# automatic
+# * := src/lexer_function2
+# automatic
+# + := src/lexer_function2.c headers//minishell.h
+# automatic
+# | := 
+# automatic
+# < := src/lexer_function2.c
+# automatic
+# ^ := src/lexer_function2.c headers//minishell.h
+# automatic
+# ? := src/lexer_function2.c headers//minishell.h
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/16=6%
+#  recipe to execute (from 'Makefile', line 16):
+	$(CC) $(FLAGS) -I$(HEADDIR) -c $< -o $@ 
+
+# Not a target:
+/boot:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+src/lexer.o: src/lexer.c headers//minishell.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/lexer'
+#  Last modified 2022-08-14 11:59:32.685524089
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 16):
+	$(CC) $(FLAGS) -I$(HEADDIR) -c $< -o $@ 
+
+# Not a target:
+/home:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-14 12:02:51.918180031
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+/media:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+/dev:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+/bin:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+ 
+# Not a target:
+headers//minishell.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-14 11:50:28.620886632
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+/cdrom:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+/lib32:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+minishell: src/main.o src/utils.o src/lexer.o src/list_functions.o src/lexer_functions.o src/lexer_function2.o /libx32 /bin /usr /root /opt /var /mnt /etc /boot /srv /sys /sbin /lib64 /dev /swapfile /lib32 /cdrom /media /run /proc /snap /tmp /lost+found /lib /home
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/6=0%
+#  recipe to execute (from 'Makefile', line 19):
+	$(CC) $(OBJ) -lreadline -o $(NAME)
+
+# Not a target:
+/lib64:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+/proc:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+src/list_functions.o: src/list_functions.c headers//minishell.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/list_functions'
+#  Last modified 2022-08-14 11:59:32.825524646
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 16):
+	$(CC) $(FLAGS) -I$(HEADDIR) -c $< -o $@ 
+
+fclean: clean
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 25):
+	rm -f $(NAME)
+
+# Not a target:
+/lib:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/main.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-12 22:18:12.942922834
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/lexer_function2.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-14 12:00:11.589671249
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+/swapfile:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/lexer.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-13 20:35:21.040722034
+#  File has been updated.
+#  Successfully updated.
+
+src/utils.o: src/utils.c headers//minishell.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/utils'
+#  Last modified 2022-08-14 11:59:32.50952339
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 16):
+	$(CC) $(FLAGS) -I$(HEADDIR) -c $< -o $@ 
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+ 
+src/lexer_functions.o: src/lexer_functions.c headers//minishell.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'src/lexer_functions'
+#  Last modified 2022-08-14 11:59:32.973525234
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 16):
+	$(CC) $(FLAGS) -I$(HEADDIR) -c $< -o $@ 
+
+# Not a target:
+/lost+found:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+/var:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+re: fclean all
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+run: all
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 30):
+	./$(NAME)
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 22):
+	rm -f $(OBJ) 
+
+# Not a target:
+/snap:
+ 
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/list_functions.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-12 22:04:26.757572737
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+/mnt:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+/run:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+/sbin:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+/sys:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/utils.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-10 13:04:28.408728187
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+/usr:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+/tmp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/lexer_functions.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-13 20:20:27.525831407
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+/opt:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# files hash-table stats:
+# Load=48/1024=5%, Rehash=0, Collisions=2/131=2%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 106 / storage = 937 B / avg = 8 B
+# current buf: size = 8162 B / used = 937 B / count = 106 / avg = 8 B
+
+# strcache performance: lookups = 154 / hit rate = 31%
+# hash-table stats:
+# Load=106/8192=1%, Rehash=0, Collisions=9/154=6%
+# Finished Make data base on Sun Aug 14 12:03:02 2022
+
+ 

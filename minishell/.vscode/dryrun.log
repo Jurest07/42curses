@@ -1,0 +1,9 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory '/home/jurest/school21/mygit/minishell'
+ 
+gcc -Wall -Werror -Wextra -Iheaders/ -c src/lexer_function2.c -o src/lexer_function2.o 
+ 
+gcc src/main.o src/utils.o src/lexer.o src/list_functions.o src/lexer_functions.o src/lexer_function2.o -lreadline -o minishell
+ 
+make: Leaving directory '/home/jurest/school21/mygit/minishell'
+ 
